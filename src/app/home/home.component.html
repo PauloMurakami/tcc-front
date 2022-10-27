@@ -1,0 +1,12 @@
+﻿<div class="card mt-4">
+    <h4 class="card-header">Eventos</h4>
+    <div class="card-body">
+        <h6>Lista de eventos</h6>
+        <div *ngIf="loading" class="spinner-border spinner-border-sm"></div>
+        <ul *ngIf="eventos">
+            <li *ngFor="let evento of eventos.eventos"> 
+                
+                nome do Evento: {{evento.nome}}</li>
+        </ul>
+    </div>
+</div>
