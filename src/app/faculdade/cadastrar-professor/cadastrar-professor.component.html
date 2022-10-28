@@ -1,0 +1,9 @@
+<div class="card">
+    <div class="card-body">
+        <form [formGroup]="cadastrarProfessorForm" (ngSubmit)="onSubmit()">
+            This is some text within a card body.
+            <input type="text" formControlName="email" class="form-control" />
+            <button class="btn btn-primary">Cadastrar</button>
+        </form>
+    </div>
+</div>

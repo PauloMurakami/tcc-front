@@ -9,7 +9,9 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { JwtInterceptor, ErrorInterceptor } from './_helpers';
 import { HomeComponent } from './home';
-import { LoginComponent } from './login';
+import { LoginComponent } from './login';;
+import { FaculdadeComponent } from './faculdade/faculdade.component';;
+import { CadastrarProfessorComponent } from './faculdade/cadastrar-professor/cadastrar-professor.component'
 
 @NgModule({
     imports: [
@@ -21,7 +23,9 @@ import { LoginComponent } from './login';
     declarations: [
         AppComponent,
         HomeComponent,
-        LoginComponent
+        LoginComponent,
+        FaculdadeComponent,
+        CadastrarProfessorComponent
     ],
     providers: [
         { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

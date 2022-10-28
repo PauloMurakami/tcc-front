@@ -2,6 +2,7 @@
 <nav class="navbar navbar-expand navbar-dark bg-dark" *ngIf="currentUser">
     <div class="navbar-nav">
         <a class="nav-item nav-link" routerLink="/" routerLinkActive="active">Home</a>
+        <a class="nav-item nav-link" routerLink="/faculdade" routerLinkActive="active" *ngIf="currentUser.userExists.role == 'faculdade'">Faculdade</a>
         <a class="nav-item nav-link" (click)="logout()">Logout</a>
     </div>
 </nav>
