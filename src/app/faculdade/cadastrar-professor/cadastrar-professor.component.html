@@ -1,9 +1,59 @@
-<div class="card">
-    <div class="card-body">
-        <form [formGroup]="cadastrarProfessorForm" (ngSubmit)="onSubmit()">
-            This is some text within a card body.
-            <input type="text" formControlName="email" class="form-control" />
-            <button class="btn btn-primary">Cadastrar</button>
-        </form>
+<div class="card mt-4">
+    <div class="card">
+        <div class="card-body">
+            <form [formGroup]="cadastrarProfessorForm" (ngSubmit)="onSubmit()">
+                Cadastrar Professor:
+                <br>
+                <label for="emailProfessor">Email:</label>
+                <input type="text" formControlName="email" class="form-control" id="emailProfessor"
+                    [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+                <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                    <div *ngIf="f.email.errors.required">Campo Obrigatorio</div>
+                </div>
+                <label for="nomeProfessor">Nome:</label>
+                <input type="text" formControlName="nome" class="form-control" id="nomeProfessor"
+                    [ngClass]="{ 'is-invalid': submitted && f.nome.errors }" />
+                <div *ngIf="submitted && f.nome.errors" class="invalid-feedback">
+                    <div *ngIf="f.nome.errors.required">Campo Obrigatorio</div>
+                </div>
+                <label for="senhaProfessor">Senha:</label>
+                <input type="password" formControlName="senha" class="form-control" id="senhaProfessor"
+                    [ngClass]="{ 'is-invalid': submitted && f.senha.errors }" />
+                <div *ngIf="submitted && f.senha.errors" class="invalid-feedback">
+                    <div *ngIf="f.senha.errors.required">Campo Obrigatorio</div>
+                </div>
+                <br>
+                <button class="btn btn-primary">Cadastrar</button>
+            </form>
+            <br>
+            <div *ngIf="error" class="alert alert-danger" role="alert">
+                {{errorMessage}}
+            </div>
+
+            <button type="button" id="openModalButton" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" hidden>
+                Launch demo modal
+              </button>
+              
+              <!-- Modal -->
+              <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      Professor Cadastrado com sucesso!
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-primary" data-dismiss="modal">Okay</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            
+        </div>
     </div>
 </div>
