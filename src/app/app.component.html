@@ -1,18 +1,9 @@
 ﻿<!-- nav -->
-<div class="row" style="height:100%; width: 100%;" *ngIf="currentUser">
-    <app-sidebar class="paddingZero col-sm-3 " ></app-sidebar>
+<div class="row" style="height:100%; width: 100%;">
+    <app-sidebar class="paddingZero col-sm-3 " *ngIf="currentUser"></app-sidebar>
     
-    <div class="col-sm-9">
+    <div class="" [ngClass]="{ 'col-sm-9':currentUser ,'col-sm-12':!currentUser}">
         <router-outlet></router-outlet>
     </div>
     
 </div>
-<div class="row" style="height:100%; width: 100%;" *ngIf="!currentUser">
-    
-    <div class="col-sm-12">
-        <router-outlet></router-outlet>
-    </div>
-    
-</div>
-
-<!-- main app container -->
