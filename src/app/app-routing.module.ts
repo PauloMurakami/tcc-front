@@ -4,6 +4,7 @@ import { FaculdadeComponent } from './faculdade/faculdade.component';
 
 import { HomeComponent } from './home';
 import { LoginComponent } from './login';
+import { RegisterComponent } from './register/register.component';
 import { AuthGuard } from './_helpers';
 
 const routes: Routes = [
@@ -12,6 +13,7 @@ const routes: Routes = [
         role: 'faculdade'
     } },
     { path: 'login', component: LoginComponent },
+    { path: 'register', component: RegisterComponent },
 
     // otherwise redirect to home
     { path: '**', redirectTo: 'home' }

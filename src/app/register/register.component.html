@@ -1,5 +1,5 @@
-﻿<div class="row" style="height: 100%;
-background-color: #FFF8F5;" >
+<div class="row" style="height: 100%;
+background-color: #FFF8F5;">
 
     <svg class="d-none d-md-block col-md-6 paddingZero" width="957" viewBox="0 0 957 706" fill="none"
         style="background-color: #FFECE5;" xmlns="http://www.w3.org/2000/svg">
@@ -531,37 +531,82 @@ background-color: #FFF8F5;" >
             fill="#FF5412" />
     </svg>
     <div class="col-sm-12 col-md-6 d-flex align-items-center">
-        <div class="container p-5 m-5">
+        <div class="container p-5 m-4">
             <div class="pl-3">
-                <h3 class="LaranjaInformativo"><b>Entre com sua conta</b></h3>
-                <p>Não tem uma conta? Crie por <a class="LaranjaInformativo" routerLink="/register">aqui</a>.</p>
+                <h3 class="LaranjaInformativo"><b>Crie sua conta gratuitamente</b></h3>
+                <p>Já tem uma conta? Entre por <a class="LaranjaInformativo" routerLink="/login">aqui</a>.</p>
             </div>
             <hr class="LaranjaInformativoHr">
             <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="text" formControlName="email" class="inputCertificat form-control"
-                        [ngClass]="{ 'is-invalid': submitted && f.email.errors }" placeholder="email@email.com" />
-                    <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
-                        <div *ngIf="f.email.errors.required">email is required</div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="password">Senha</label>
-                    <input type="password" formControlName="password" class="inputCertificat form-control"
-                        [ngClass]="{ 'is-invalid': submitted && f.password.errors }" placeholder="senha" />
-                    <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
-                        <div *ngIf="f.password.errors.required">Password is required</div>
-                    </div>
-                </div>
+                <div class="form-group row">
 
+                    <div class="col-md-4">
+                        <label for="nome">Nome</label>
+                        <input type="text" formControlName="nome" class="inputCertificat form-control"
+                            [ngClass]="{ 'is-invalid': submitted && f.nome.errors }" placeholder="nome" />
+                        <div *ngIf="submitted && f.nome.errors" class="invalid-feedback">
+                            <div *ngIf="f.nome.errors.required">nome is required</div>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <label for="sobrenome">Sobrenome</label>
+                        <input type="text" formControlName="sobrenome" class="inputCertificat form-control"
+                            [ngClass]="{ 'is-invalid': submitted && f.sobrenome.errors }" placeholder="sobrenome" />
+                        <div *ngIf="submitted && f.sobrenome.errors" class="invalid-feedback">
+                            <div *ngIf="f.sobrenome.errors.required">sobrenome is required</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-md-12">
+                        <label for="ra">RA</label>
+                        <input type="text" formControlName="ra" class="inputCertificat form-control"
+                            [ngClass]="{ 'is-invalid': submitted && f.ra.errors }" placeholder="00099999" />
+                        <div *ngIf="submitted && f.ra.errors" class="invalid-feedback">
+                            <div *ngIf="f.ra.errors.required">RA is required</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-md-12">
+                        <label for="email">Email</label>
+                        <input type="email" formControlName="email" class="inputCertificat form-control"
+                            [ngClass]="{ 'is-invalid': submitted && f.email.errors }" placeholder="email@email.com"/>
+                        <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                            <div *ngIf="f.email.errors.required">email is required</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-md-12">
+                        <label for="password">Senha</label>
+                        <input type="password" formControlName="password" class="inputCertificat form-control"
+                            [ngClass]="{ 'is-invalid': submitted && f.password.errors }" placeholder="senha" />
+                            <div *ngIf="passwordInvalida" class="invalid-feedback">
+                                <div>As senhas precisam ser iguais</div>
+                            </div>
+                            <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                                <div *ngIf="f.password.errors.required">password is required</div>
+                            </div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-md-12">
+                        <label for="confirmPassword">Confirme sua Senha</label>
+                        <input type="password" formControlName="confirmPassword" class="inputCertificat form-control"
+                            [ngClass]="{ 'is-invalid': submitted && f.confirmPassword.errors }" placeholder="confirme sua senha" />
+                        <div *ngIf="submitted && f.confirmPassword.errors" class="invalid-feedback">
+                            <div *ngIf="f.confirmPassword.errors.required">password is required</div>
+                        </div>
+                    </div>
+                </div>
                 <div class="d-flex justify-content-center">
                     <button [disabled]="loading" class="botaoEntrarCertificat btn btn-primary">
                         <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
-                        Entrar
+                        Registrar
                     </button>
                 </div>
-                <div *ngIf="error" class="alert alert-danger mt-3 mb-0">Ocorreu um erro no login</div>
+                <div *ngIf="error" class="alert alert-danger mt-3 mb-0">Ocorreu um erro ao criar o usuario</div>
             </form>
         </div>
     </div>

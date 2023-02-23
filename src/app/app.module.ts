@@ -13,7 +13,8 @@ import { LoginComponent } from './login';;
 import { FaculdadeComponent } from './faculdade/faculdade.component';;
 import { CadastrarProfessorComponent } from './faculdade/cadastrar-professor/cadastrar-professor.component';
 import { SidebarComponent } from './sidebar/sidebar.component'
-
+;
+import { RegisterComponent } from './register/register.component'
 @NgModule({
     imports: [
         BrowserModule,
@@ -28,7 +29,8 @@ import { SidebarComponent } from './sidebar/sidebar.component'
         FaculdadeComponent,
         CadastrarProfessorComponent
 ,
-        SidebarComponent    ],
+        SidebarComponent ,
+        RegisterComponent   ],
     providers: [
         { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
         { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
