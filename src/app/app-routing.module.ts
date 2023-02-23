@@ -7,14 +7,14 @@ import { LoginComponent } from './login';
 import { AuthGuard } from './_helpers';
 
 const routes: Routes = [
-    { path: '', component: HomeComponent, canActivate: [AuthGuard] },
+    { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
     { path: 'faculdade', component: FaculdadeComponent, canActivate: [AuthGuard], data:{
         role: 'faculdade'
     } },
     { path: 'login', component: LoginComponent },
 
     // otherwise redirect to home
-    { path: '**', redirectTo: '' }
+    { path: '**', redirectTo: 'home' }
 ];
 
 @NgModule({

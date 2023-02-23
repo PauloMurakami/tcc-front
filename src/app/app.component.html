@@ -1,13 +1,18 @@
 ﻿<!-- nav -->
-<nav class="navbar navbar-expand navbar-dark bg-dark" *ngIf="currentUser">
-    <div class="navbar-nav">
-        <a class="nav-item nav-link" routerLink="/" routerLinkActive="active">Home</a>
-        <a class="nav-item nav-link" routerLink="/faculdade" routerLinkActive="active" *ngIf="currentUser.userExists.role == 'faculdade'">Faculdade</a>
-        <a class="nav-item nav-link" (click)="logout()">Logout</a>
+<div class="row" style="height:100%; width: 100%;" *ngIf="currentUser">
+    <app-sidebar class="paddingZero col-sm-3 " ></app-sidebar>
+    
+    <div class="col-sm-9">
+        <router-outlet></router-outlet>
     </div>
-</nav>
+    
+</div>
+<div class="row" style="height:100%; width: 100%;" *ngIf="!currentUser">
+    
+    <div class="col-sm-12">
+        <router-outlet></router-outlet>
+    </div>
+    
+</div>
 
 <!-- main app container -->
-<div class="container">
-    <router-outlet></router-outlet>
-</div>

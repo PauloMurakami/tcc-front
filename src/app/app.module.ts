@@ -11,7 +11,8 @@ import { JwtInterceptor, ErrorInterceptor } from './_helpers';
 import { HomeComponent } from './home';
 import { LoginComponent } from './login';;
 import { FaculdadeComponent } from './faculdade/faculdade.component';;
-import { CadastrarProfessorComponent } from './faculdade/cadastrar-professor/cadastrar-professor.component'
+import { CadastrarProfessorComponent } from './faculdade/cadastrar-professor/cadastrar-professor.component';
+import { SidebarComponent } from './sidebar/sidebar.component'
 
 @NgModule({
     imports: [
@@ -26,7 +27,8 @@ import { CadastrarProfessorComponent } from './faculdade/cadastrar-professor/cad
         LoginComponent,
         FaculdadeComponent,
         CadastrarProfessorComponent
-    ],
+,
+        SidebarComponent    ],
     providers: [
         { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
         { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
