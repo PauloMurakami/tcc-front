@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { CadastrarProfessorComponent } from './faculdade/cadastrar-professor/cadastrar-professor.component';
 import { FaculdadeComponent } from './faculdade/faculdade.component';
+import { ListarProfessorComponent } from './faculdade/listar-professor/listar-professor.component';
 
 import { HomeComponent } from './home';
 import { LoginComponent } from './login';
@@ -9,7 +11,10 @@ import { AuthGuard } from './_helpers';
 
 const routes: Routes = [
     { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
-    { path: 'faculdade', component: FaculdadeComponent, canActivate: [AuthGuard], data:{
+    { path: 'cadastrar-docente', component: CadastrarProfessorComponent, canActivate: [AuthGuard], data:{
+        role: 'faculdade'
+    } },
+    { path: 'listar-docentes', component: ListarProfessorComponent, canActivate: [AuthGuard], data:{
         role: 'faculdade'
     } },
     { path: 'login', component: LoginComponent },

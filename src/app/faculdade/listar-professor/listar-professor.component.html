@@ -1,0 +1,17 @@
+<div *ngIf="loading" class="spinner-border spinner-border-sm"></div>
+<div class="container mt-5 ml-3">
+    <div class="row mb-5">
+        <h6 style="color: #FF5412;">Lista dos Docentes</h6>
+    </div>
+
+    <div class="row mb-1">
+        Nome dos Docentes
+    </div>
+    <div *ngIf="professores">
+        <div *ngFor="let professor of professores.professors" class="row">
+            <div style="background-color: #FFECE5;" class="col-md-12 p-2 pl-3 mb-2">
+                {{professor.nome}}
+            </div>
+        </div>
+    </div>
+</div>

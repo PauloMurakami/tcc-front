@@ -14,6 +14,7 @@ export class CadastrarProfessorComponent implements OnInit {
   error = false;
   errorMessage = "";
   cadastrarProfessorForm: FormGroup;
+  passwordInvalida = false;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -26,14 +27,22 @@ export class CadastrarProfessorComponent implements OnInit {
 
   ngOnInit(): void {
     this.cadastrarProfessorForm = this.formBuilder.group({
-      email: ['', Validators.required],
       nome: ['', Validators.required],
-      senha: ['', Validators.required]
+      sobrenome: ['', Validators.required],
+      email: ['', Validators.required],
+      password: ['', Validators.required],
+      confirmPassword: ['', Validators.required]
     });
   }
   get f() { return this.cadastrarProfessorForm.controls; }
 
   onSubmit() {
+    if(this.f.password.value != this.f.confirmPassword.value){
+      this.f.password.reset()
+      this.f.confirmPassword.reset()
+      this.passwordInvalida = true;
+      return;
+    }
     console.log('submit')
     this.submitted = true;
     if (this.cadastrarProfessorForm.invalid) {
@@ -41,8 +50,8 @@ export class CadastrarProfessorComponent implements OnInit {
     }
     this.professorService.createProfessor({
       email: this.f.email.value,
-      nome: this.f.nome.value,
-      senha: this.f.senha.value
+      nome: this.f.nome.value + " " + this.f.sobrenome.value,
+      senha: this.f.password.value
     }).subscribe(()=>{
       document.getElementById("openModalButton").click();
       this.limparFormulario();

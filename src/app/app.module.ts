@@ -14,7 +14,8 @@ import { FaculdadeComponent } from './faculdade/faculdade.component';;
 import { CadastrarProfessorComponent } from './faculdade/cadastrar-professor/cadastrar-professor.component';
 import { SidebarComponent } from './sidebar/sidebar.component'
 ;
-import { RegisterComponent } from './register/register.component'
+import { RegisterComponent } from './register/register.component';
+import { ListarProfessorComponent } from './faculdade/listar-professor/listar-professor.component'
 @NgModule({
     imports: [
         BrowserModule,
@@ -30,7 +31,8 @@ import { RegisterComponent } from './register/register.component'
         CadastrarProfessorComponent
 ,
         SidebarComponent ,
-        RegisterComponent   ],
+        RegisterComponent ,
+        ListarProfessorComponent  ],
     providers: [
         { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
         { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },

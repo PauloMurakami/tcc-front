@@ -13,8 +13,8 @@ export class ProfessorService {
     createProfessor(body: BodyCreateProfessor) {
         return this.http.post<any>(`${environment.apiUrl}/register-teacher`, body)
     }
-    getAllOpen() {
-        return this.http.get<any[]>(`${environment.apiUrl}/find-events-open`);
+    getAllProfessor() {
+        return this.http.get<any[]>(`${environment.apiUrl}/list-teacher`);
     }
     // {
 
