@@ -10,7 +10,7 @@ import { AuthenticationService } from '@app/_services';
 })
 export class SidebarComponent implements OnInit {
   currentUser: User;
-
+  nomeUsuario: string;
 
   ngOnInit(): void {
   }
@@ -20,6 +20,7 @@ export class SidebarComponent implements OnInit {
       private authenticationService: AuthenticationService
   ) {
       this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
+      this.nomeUsuario=this.currentUser.userExists.nome;
   }
 
   logout() {
