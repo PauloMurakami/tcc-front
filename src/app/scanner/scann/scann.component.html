@@ -1,0 +1,22 @@
+<div class="container">
+
+  <!-- devices -->
+  <div class="row">
+    <div class="col-xs-12 col-md-6 col-lg-4 col-xl-3 my-1">
+      <select [ngModel]="null" (ngModelChange)="action.playDevice($event)" class="form-select form-select-sm">
+        <option [value]="null" selected>Select device</option>
+        <option *ngFor="let c of action.devices.value; let i = index" [ngValue]="c.deviceId" [selected]="i == action.deviceActive">{{c.label}}</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- ngx-scanner-qrcode -->
+  <ngx-scanner-qrcode #action="scanner" [config]="config" (event)="onEvent($event)"></ngx-scanner-qrcode>
+
+  <p *ngIf="action.isLoading">⌛</p>
+
+  <button class="btn" [class.btn-info]="!action.isStart" [class.btn-warning]="action.isStart" [disabled]="action.isLoading" (click)="handle(action, action.isStart ? 'stop' : 'start')">
+    <img [src]="action.isStart ? 'https://id1945.github.io/images/svg/camera-off.svg' : 'https://id1945.github.io/images/svg/camera-on.svg'" width="30px"/>
+    Ler QRCODE
+  </button>
+</div>

@@ -130,9 +130,9 @@
                         Lista de Eventos
                 </a>
             </li>
-            <div class="p-1" *ngIf="currentUser.userExists.role == 'professor'"></div>
-            <li class="nav-item" *ngIf="currentUser.userExists.role == 'professor'">
-                <a class="nav-component nav-item nav-link" routerLink="/#" routerLinkActive="rotaAtiva">
+            <div class="p-1" *ngIf="currentUser.userExists.permiteVerificacao"></div>
+            <li class="nav-item" *ngIf="currentUser.userExists.permiteVerificacao">
+                <a class="nav-component nav-item nav-link" routerLink="/ler-qrcode" routerLinkActive="rotaAtiva">
                     <svg class="mr-3" width="20" height="20" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M2.28571 0C1.67951 0 1.09813 0.240816 0.669471 0.669471C0.240816 1.09813 0 1.67951 0 2.28571V11.4286H11.4286V0H2.28571ZM8.57143 8.57143H2.85714V2.85714H8.57143V8.57143Z" fill="#FF5412"/>
                         <path d="M0 37.7144C0 38.3206 0.240816 38.902 0.669471 39.3306C1.09813 39.7593 1.67951 40.0001 2.28571 40.0001H11.4286V28.5715H0V37.7144ZM2.85714 31.4287H8.57143V37.143H2.85714V31.4287Z" fill="#FF5412"/>
