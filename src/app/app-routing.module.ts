@@ -9,6 +9,7 @@ import { LoginComponent } from './login';
 import { RegisterComponent } from './register/register.component';
 import { AuthGuard } from './_helpers';
 import { ScannComponent } from './scanner/scann/scann.component';
+import { CriarEventoComponent } from './evento/criar-evento/criar-evento.component';
 
 const routes: Routes = [
     { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
@@ -17,6 +18,9 @@ const routes: Routes = [
     } },
     { path: 'listar-docentes', component: ListarProfessorComponent, canActivate: [AuthGuard], data:{
         role: 'faculdade'
+    } },
+    { path: 'criar-evento', component: CriarEventoComponent, canActivate: [AuthGuard], data:{
+        role: 'professor'
     } },
     { path: 'ler-qrcode', component: ScannComponent, canActivate: [AuthGuard], data:{
         role: 'professor',

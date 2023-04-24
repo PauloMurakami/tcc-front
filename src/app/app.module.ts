@@ -11,15 +11,13 @@ import { JwtInterceptor, ErrorInterceptor } from './_helpers';
 import { HomeComponent } from './home';
 import { LoginComponent } from './login';;
 import { FaculdadeComponent } from './faculdade/faculdade.component';;
-import { CadastrarProfessorComponent } from './faculdade/cadastrar-professor/cadastrar-professor.component'
-    ;
-import { SidebarComponent } from './sidebar/sidebar.component'
-    ;
-import { RegisterComponent } from './register/register.component'
-    ;
+import { CadastrarProfessorComponent } from './faculdade/cadastrar-professor/cadastrar-professor.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
+import { RegisterComponent } from './register/register.component';
 import { ListarProfessorComponent } from './faculdade/listar-professor/listar-professor.component'
 import { NgxScannerQrcodeModule } from 'ngx-scanner-qrcode';;
-import { ScannComponent } from './scanner/scann/scann.component'
+import { ScannComponent } from './scanner/scann/scann.component';
+import { CriarEventoComponent } from './evento/criar-evento/criar-evento.component'
 @NgModule({
     imports: [
         BrowserModule,
@@ -39,7 +37,9 @@ import { ScannComponent } from './scanner/scann/scann.component'
         SidebarComponent,
         RegisterComponent,
         ListarProfessorComponent,
-        ScannComponent],
+        ScannComponent,
+        CriarEventoComponent
+    ],
     providers: [
         { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
         { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
