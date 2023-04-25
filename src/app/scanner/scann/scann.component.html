@@ -5,7 +5,8 @@
     <div class="col-xs-12 col-md-6 col-lg-4 col-xl-3 my-1">
       <select [ngModel]="null" (ngModelChange)="action.playDevice($event)" class="form-select form-select-sm">
         <option [value]="null" selected>Select device</option>
-        <option *ngFor="let c of action.devices.value; let i = index" [ngValue]="c.deviceId" [selected]="i == action.deviceActive">{{c.label}}</option>
+        <option *ngFor="let c of action.devices.value; let i = index" [ngValue]="c.deviceId"
+          [selected]="i == action.deviceActive">{{c.label}}</option>
       </select>
     </div>
   </div>
@@ -15,8 +16,38 @@
 
   <p *ngIf="action.isLoading">⌛</p>
 
-  <button class="btn" [class.btn-info]="!action.isStart" [class.btn-warning]="action.isStart" [disabled]="action.isLoading" (click)="handle(action, action.isStart ? 'stop' : 'start')">
-    <img [src]="action.isStart ? 'https://id1945.github.io/images/svg/camera-off.svg' : 'https://id1945.github.io/images/svg/camera-on.svg'" width="30px"/>
+  <button class="btn" [class.btn-info]="!action.isStart" [class.btn-warning]="action.isStart"
+    [disabled]="action.isLoading" (click)="handle(action, action.isStart ? 'stop' : 'start')">
+    <img
+      [src]="action.isStart ? 'https://id1945.github.io/images/svg/camera-off.svg' : 'https://id1945.github.io/images/svg/camera-on.svg'"
+      width="30px" />
     Ler QRCODE
   </button>
+
+  <div *ngIf="error" class="alert alert-danger mt-3 mb-0">Ocorreu um erro ao validar a inscrição</div>
+
+  <button type="button" id="openModalButton" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
+    hidden>
+    Launch demo modal
+  </button>
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          Email Enviado com sucesso!
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="botaoEntrarCertificat btn btn-primary" data-dismiss="modal">Okay</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

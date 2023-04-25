@@ -1,5 +1,6 @@
 import { Component, AfterViewInit, ViewChild } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { EventServices } from '@app/_services';
 
 import {
   ScannerQRCodeConfig,
@@ -17,8 +18,8 @@ import { delay } from 'rxjs/internal/operators';
   styleUrls: ['./scann.component.css']
 })
 export class ScannComponent implements AfterViewInit {
-
-
+  idEvent = '';
+  error = false;
   // https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/getUserMedia#front_and_back_camera
   public config: ScannerQRCodeConfig = {
     // fps: 1000,
@@ -39,7 +40,10 @@ export class ScannComponent implements AfterViewInit {
   @ViewChild('action') action: NgxScannerQrcodeComponent;
 
 
-  constructor(private router: Router, private qrcode: NgxScannerQrcodeService) { }
+  constructor(private router: ActivatedRoute, private qrcode: NgxScannerQrcodeService,
+    private eventoService: EventServices) {
+    this.router.params.subscribe(params => this.idEvent = params['id']);
+  }
 
   ngAfterViewInit(): void {
     this.action.isReady.pipe(delay(3000)).subscribe(() => {
@@ -48,8 +52,17 @@ export class ScannComponent implements AfterViewInit {
   }
 
   public onEvent(e: ScannerQRCodeResult[]): void {
-    console.log(e[0].value);
-    this.router.navigate(['/'])
+    this.action.stop()
+    this.eventoService.sendCertificate(e[0].value, this.idEvent).subscribe(() => {
+      document.getElementById("openModalButton").click();
+    }, (err) => {
+      this.error = true;
+      setTimeout(() => {
+        this.error = false
+      }, 2000)
+    });
+    // aqui ele vai desativar a camera e fazer a chamada para o back
+    // this.router.navigate(['/validar-qrcode'])
   }
 
   public handle(action: NgxScannerQrcodeComponent, fn: string): void {

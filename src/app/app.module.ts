@@ -18,6 +18,10 @@ import { ListarProfessorComponent } from './faculdade/listar-professor/listar-pr
 import { NgxScannerQrcodeModule } from 'ngx-scanner-qrcode';;
 import { ScannComponent } from './scanner/scann/scann.component';
 import { CriarEventoComponent } from './evento/criar-evento/criar-evento.component'
+;
+import { ValidarQrCodeComponent } from './evento/validar-qr-code/validar-qr-code.component'
+import { QRCodeModule } from 'angularx-qrcode';;
+import { QrcodeComponent } from './aluno/qrcode/qrcode.component'
 @NgModule({
     imports: [
         BrowserModule,
@@ -27,6 +31,7 @@ import { CriarEventoComponent } from './evento/criar-evento/criar-evento.compone
         NgxScannerQrcodeModule,
         FormsModule,
         BrowserModule,
+        QRCodeModule
     ],
     declarations: [
         AppComponent,
@@ -38,7 +43,9 @@ import { CriarEventoComponent } from './evento/criar-evento/criar-evento.compone
         RegisterComponent,
         ListarProfessorComponent,
         ScannComponent,
-        CriarEventoComponent
+        CriarEventoComponent,
+        ValidarQrCodeComponent,
+        QrcodeComponent
     ],
     providers: [
         { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

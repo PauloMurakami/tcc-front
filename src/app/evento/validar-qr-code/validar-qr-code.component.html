@@ -1,0 +1,28 @@
+<div class="col-md-12 d-flex align-items-center">
+    <div class="container p-5 m-4">
+        <div class="pl-3">
+            <h3 class="LaranjaInformativo"><b>Selecione um evento</b></h3>
+        </div>
+        <hr class="LaranjaInformativoHr">
+        <form [formGroup]="EventForm" (ngSubmit)="onSubmit()">
+            <div class="form-group row">
+                <div class="col-md-1">
+                    <h4 class="mt-2 LaranjaInformativo">Evento:</h4>
+                </div>
+                <div class="ml-1 col-md-10">
+                    <select formControlName="evento" class="form-control form-control-lg">
+                        <option selected>Selecione um evento</option>
+                        <option *ngFor="let evento of eventos" [value]="evento.id">{{evento.nome}}</option>
+                    </select>
+                </div>
+            </div>
+            <hr>
+            <div class="d-flex justify-content-center">
+                <button [disabled]="loading" class="botaoEntrarCertificat btn btn-primary">
+                    <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                    Scanear Evento
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

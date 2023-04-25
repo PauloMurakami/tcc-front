@@ -10,6 +10,8 @@ import { RegisterComponent } from './register/register.component';
 import { AuthGuard } from './_helpers';
 import { ScannComponent } from './scanner/scann/scann.component';
 import { CriarEventoComponent } from './evento/criar-evento/criar-evento.component';
+import { ValidarQrCodeComponent } from './evento/validar-qr-code/validar-qr-code.component';
+import { QrcodeComponent } from './aluno/qrcode/qrcode.component';
 
 const routes: Routes = [
     { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
@@ -22,7 +24,14 @@ const routes: Routes = [
     { path: 'criar-evento', component: CriarEventoComponent, canActivate: [AuthGuard], data:{
         role: 'professor'
     } },
-    { path: 'ler-qrcode', component: ScannComponent, canActivate: [AuthGuard], data:{
+    { path: 'ler-qrcode/:id', component: ScannComponent, canActivate: [AuthGuard], data:{
+        role: 'professor',
+        routeEspecification: 'ler-qrcode'
+    } },
+    { path: 'qrcode', component: QrcodeComponent, canActivate: [AuthGuard], data:{
+        role: 'aluno',
+    } },
+    { path: 'validar-qrcode', component: ValidarQrCodeComponent, canActivate: [AuthGuard], data:{
         role: 'professor',
         routeEspecification: 'ler-qrcode'
     } },
