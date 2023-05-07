@@ -12,6 +12,7 @@ import { ScannComponent } from './scanner/scann/scann.component';
 import { CriarEventoComponent } from './evento/criar-evento/criar-evento.component';
 import { ValidarQrCodeComponent } from './evento/validar-qr-code/validar-qr-code.component';
 import { QrcodeComponent } from './aluno/qrcode/qrcode.component';
+import { CertificadosComponent } from './aluno/certificados/certificados.component';
 
 const routes: Routes = [
     { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
@@ -29,6 +30,9 @@ const routes: Routes = [
         routeEspecification: 'ler-qrcode'
     } },
     { path: 'qrcode', component: QrcodeComponent, canActivate: [AuthGuard], data:{
+        role: 'aluno',
+    } },
+    { path: 'certificados', component: CertificadosComponent, canActivate: [AuthGuard], data:{
         role: 'aluno',
     } },
     { path: 'validar-qrcode', component: ValidarQrCodeComponent, canActivate: [AuthGuard], data:{

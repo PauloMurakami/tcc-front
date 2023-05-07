@@ -21,7 +21,8 @@ import { CriarEventoComponent } from './evento/criar-evento/criar-evento.compone
 ;
 import { ValidarQrCodeComponent } from './evento/validar-qr-code/validar-qr-code.component'
 import { QRCodeModule } from 'angularx-qrcode';;
-import { QrcodeComponent } from './aluno/qrcode/qrcode.component'
+import { QrcodeComponent } from './aluno/qrcode/qrcode.component';
+import { CertificadosComponent } from './aluno/certificados/certificados.component'
 @NgModule({
     imports: [
         BrowserModule,
@@ -45,7 +46,8 @@ import { QrcodeComponent } from './aluno/qrcode/qrcode.component'
         ScannComponent,
         CriarEventoComponent,
         ValidarQrCodeComponent,
-        QrcodeComponent
+        QrcodeComponent,
+        CertificadosComponent
     ],
     providers: [
         { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

@@ -1,12 +1,72 @@
-﻿<div class="card mt-4">
-    <h4 class="card-header">Eventos</h4>
-    <div class="card-body">
-        <h6>Lista de eventos</h6>
-        <div *ngIf="loading" class="spinner-border spinner-border-sm"></div>
-        <ul *ngIf="eventos">
-            <li *ngFor="let evento of eventos.eventos"> 
-                
-                nome do Evento: {{evento.nome}}</li>
-        </ul>
+﻿<div class="col-md-12 d-flex align-items-center">
+    <div class="container p-5 m-4">
+        <div class="pl-3">
+            <h3 class="LaranjaInformativo"><b>Lista de eventos</b></h3>
+        </div>
+        <div class="table-responsive mt-3">
+            <table class="table table-hover" *ngIf="eventos">
+                <tbody>
+                    <tr *ngFor="let evento of eventos.eventos">
+                        <div class="d-flex">
+                            <div class="mr-auto p-2">{{evento.nome}} - {{evento.descricao}}</div>
+                            <div class="p-2"><button type="button" class="btn btn-success"
+                                    (click)="entrar(evento.id)">Entrar</button></div>
+                            <div class="p-2"><button type="button" class="btn btn-info"
+                                    (click)="informacoes(evento)">Informações</button></div>
+                        </div>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="pl-3">
+            <h3 class="LaranjaInformativo"><b>Lista de Eventos Cadastrados</b></h3>
+        </div>
+        <div class="table-responsive mt-3">
+            <table class="table table-hover" *ngIf="eventosCadastrados">
+                <tbody>
+                    <tr *ngFor="let evento of eventosCadastrados.eventos">
+                        <div class="d-flex">
+                            <div class="mr-auto p-2">{{evento.nome}} - {{evento.descricao}}</div>
+                            <div class="p-2"><button type="button" class="btn btn-info"
+                                    (click)="informacoes(evento)">Informações</button></div>
+                        </div>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <button type="button" id="openModalButton" class="btn btn-primary" data-toggle="modal"
+            data-target="#exampleModal" hidden>
+            Launch demo modal
+        </button>
+        
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        {{eventoSelecionado.nome}}
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        Palestrante: {{eventoSelecionado.nomePalestrante}}
+                        <br>
+                        Descrição: {{eventoSelecionado.descricao}}
+                        <br>
+                        Data: {{eventoSelecionado.data}}
+                        <br>
+                        Quantidade de horas: {{eventoSelecionado.quantidadeDeHoras}}
+                        <br>
+                        Quantidade de vagas: {{eventoSelecionado.quantidadeDeVagas}}
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="botaoEntrarCertificat btn btn-primary"
+                            data-dismiss="modal">Okay</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

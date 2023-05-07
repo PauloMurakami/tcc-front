@@ -1,0 +1,18 @@
+<div class="col-md-12 d-flex align-items-center">
+    <div class="container p-5 m-4">
+        <div class="pl-3">
+            <h3 class="LaranjaInformativo"><b>Lista de eventos</b></h3>
+        </div>
+        <div class="table-responsive mt-3">
+            <table class="table table-hover" *ngIf="eventos">
+                <tbody>
+                    <tr *ngFor="let evento of eventos.eventos">
+                        <div class="d-flex">
+                            <div class="mr-auto p-2">{{evento.nome}} - {{evento.descricao}}</div>
+                        </div>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

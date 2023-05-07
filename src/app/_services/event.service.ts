@@ -10,6 +10,12 @@ export class EventServices {
     getAllOpen() {
         return this.http.get<any[]>(`${environment.apiUrl}/find-events-open`);
     }
+    getAllOpenNotJoin() {
+        return this.http.get<any[]>(`${environment.apiUrl}/find-events-user-not-join`);
+    }
+    getAllOpenJoin() {
+        return this.http.get<any[]>(`${environment.apiUrl}/find-events-user-join`);
+    }
     getAllJoindedOpen() {
         return this.http.get<any[]>(`${environment.apiUrl}/find-events-joined`);
     }
@@ -19,5 +25,10 @@ export class EventServices {
     createEvent(nome: string, quantidadeDeHoras: number, quantidadeDeVagas: number, nomePalestrante: string, descricao: string, data: string) {
         return this.http.post<any>(`${environment.apiUrl}/register-event`, { nome, quantidadeDeHoras, quantidadeDeVagas, nomePalestrante, descricao, data })
     }
-
+    joinEvent(idEvent: string){
+        return this.http.get<any>(`${environment.apiUrl}/join-event/${idEvent}`)
+    }
+    findCertificados(){
+        return this.http.get<any>(`${environment.apiUrl}/find-events-certificates`)
+    }
 }
