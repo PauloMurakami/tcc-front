@@ -13,6 +13,7 @@ import { CriarEventoComponent } from './evento/criar-evento/criar-evento.compone
 import { ValidarQrCodeComponent } from './evento/validar-qr-code/validar-qr-code.component';
 import { QrcodeComponent } from './aluno/qrcode/qrcode.component';
 import { CertificadosComponent } from './aluno/certificados/certificados.component';
+import { ListarEventosComponent } from './evento/listar-eventos/listar-eventos.component';
 
 const routes: Routes = [
     { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
@@ -23,6 +24,9 @@ const routes: Routes = [
         role: 'faculdade'
     } },
     { path: 'criar-evento', component: CriarEventoComponent, canActivate: [AuthGuard], data:{
+        role: 'professor'
+    } },
+    { path: 'listar-eventos', component: ListarEventosComponent, canActivate: [AuthGuard], data:{
         role: 'professor'
     } },
     { path: 'ler-qrcode/:id', component: ScannComponent, canActivate: [AuthGuard], data:{

@@ -2,13 +2,16 @@
 import { first } from 'rxjs/operators';
 
 import { User } from '@app/_models';
-import { EventServices } from '@app/_services';
+import { AuthenticationService, EventServices } from '@app/_services';
 
 @Component({
     templateUrl: 'home.component.html',
     styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
+
+    currentUser: User;
+    nomeUsuario: string;
     loading = false;
     eventos: any[];
     eventosCadastrados: any[];
@@ -21,7 +24,11 @@ export class HomeComponent {
         data: ""
     };
     eventoSelecionadoModal = false;
-    constructor(private eventosService: EventServices) { }
+    constructor(private eventosService: EventServices,
+        private authenticationService: AuthenticationService) {
+        this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
+        this.nomeUsuario = this.currentUser.userExists.nome;
+    }
 
     ngOnInit() {
         this.eventosService.getAllOpenNotJoin().subscribe(eventos => {

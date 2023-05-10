@@ -7,6 +7,10 @@ import { environment } from '@environments/environment';
 export class EventServices {
     constructor(private http: HttpClient) { }
 
+
+    getAll() {
+        return this.http.get<any[]>(`${environment.apiUrl}/find-events`);
+    }
     getAllOpen() {
         return this.http.get<any[]>(`${environment.apiUrl}/find-events-open`);
     }
