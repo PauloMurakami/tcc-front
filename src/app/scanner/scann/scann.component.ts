@@ -51,7 +51,11 @@ export class ScannComponent implements AfterViewInit {
     });
   }
 
-  public onEvent(e: ScannerQRCodeResult[]): void {
+  public onEvent(e: ScannerQRCodeResult[] | any): void {
+    if(e[0] == null){
+      return
+    }
+    this.action.pause()
     this.action.stop()
     this.eventoService.sendCertificate(e[0].value, this.idEvent).subscribe(() => {
       document.getElementById("openModalButton").click();
