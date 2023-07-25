@@ -1,5 +1,5 @@
 ﻿<div class="col-md-12 d-flex align-items-center" *ngIf="currentUser.userExists.role == 'aluno'">
-    <div class="container p-5 m-4">
+    <div class="container p-lg-5  p-md-5 m-md-4 m-lg-4 p-sm-1 msm-1">
         <div class="pl-3">
             <h3 class="LaranjaInformativo"><b>Lista de eventos</b></h3>
         </div>
@@ -54,8 +54,8 @@
                         Inscrição realizada com sucesso
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="botaoEntrarCertificat btn btn-primary"
-                            data-dismiss="modal" (click)="atualizarPagina()">Okay</button>
+                        <button type="button" class="botaoEntrarCertificat btn btn-primary" data-dismiss="modal"
+                            (click)="atualizarPagina()">Okay</button>
                     </div>
                 </div>
             </div>
@@ -97,14 +97,14 @@
     </div>
 </div>
 <div class="col-md-12 d-flex align-items-center" *ngIf="currentUser.userExists.role == 'faculdade'">
-    <div class="container p-5 m-4">
+    <div class="container p-lg-5  p-md-5 m-md-4 m-lg-4 p-sm-1 msm-1">
         <div class="pl-3">
             <h3 class="LaranjaInformativo"><b>Bem Vindo ao Painel da Faculdade</b></h3>
         </div>
     </div>
 </div>
 <div class="col-md-12 d-flex align-items-center" *ngIf="currentUser.userExists.role == 'professor'">
-    <div class="container p-5 m-4">
+    <div class="container p-lg-5  p-md-5 m-md-4 m-lg-4 p-sm-1 msm-1">
         <div class="pl-3">
             <h3 class="LaranjaInformativo"><b>Bem Vindo ao Painel do Professor</b></h3>
         </div>

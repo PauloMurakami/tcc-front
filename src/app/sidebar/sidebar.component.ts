@@ -27,5 +27,18 @@ export class SidebarComponent implements OnInit {
     this.authenticationService.logout();
     this.router.navigate(['/login']);
   }
-
+  abrirSidebar(el: any){
+    var display = document.getElementById(el).style.display;
+    console.log("display",display)
+    if(display == "none"){
+      document.getElementById(el).style.display = 'block';
+      document.getElementById("sidebarGlobal").style.height = '100%';
+      document.getElementById("sidebarGlobal").style.backgroundColor = "#FFECE5";
+    }
+    else{
+      document.getElementById(el).style.display = 'none';
+      document.getElementById("sidebarGlobal").style.height = 'min-content';
+      document.getElementById("sidebarGlobal").style.backgroundColor = "#FFF8F5";
+    }
+  }
 }
