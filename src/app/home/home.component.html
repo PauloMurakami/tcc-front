@@ -34,11 +34,37 @@
                 </tbody>
             </table>
         </div>
+        <button type="button" id="openModalButtonEntrar" class="btn btn-primary" data-toggle="modal"
+            data-target="#modalEntrar" hidden>
+            Launch demo modal
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="modalEntrar" tabindex="-1" role="dialog" aria-labelledby="modalEntrarLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        {{eventoSelecionado.nome}}
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        Inscrição realizada com sucesso
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="botaoEntrarCertificat btn btn-primary"
+                            data-dismiss="modal" (click)="atualizarPagina()">Okay</button>
+                    </div>
+                </div>
+            </div>
+        </div>
         <button type="button" id="openModalButton" class="btn btn-primary" data-toggle="modal"
             data-target="#exampleModal" hidden>
             Launch demo modal
         </button>
-        
+
         <!-- Modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
             aria-hidden="true">

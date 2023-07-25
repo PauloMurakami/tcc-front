@@ -49,7 +49,11 @@ export class HomeComponent {
     entrar(id: string) {
         console.log(id)
         this.eventosService.joinEvent(id).subscribe(() => {
-            console.log("cadastrado!");
+            document.getElementById("openModalButtonEntrar").click();
         })
     }
+    atualizarPagina(){
+        location.reload()
+    }
+
 }
